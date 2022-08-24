@@ -7,7 +7,7 @@ title: String
 kind: "primary"| "secundary"
 */
 
-const Button = ({ title, kind, onClick }) => {
+const Button = ({ title, kind, onClick, type }) => {
   const generationClassByKind = () => {
     if (kind === "secundary") return Styles.secundary;
     if (kind === "full") return Styles.full;
@@ -17,8 +17,9 @@ const Button = ({ title, kind, onClick }) => {
 
   return (
     <button
+      type={type}
       className={`${Styles.button} ${generationClassByKind()}`}
-      onClick={() => onClick()}
+      onClick={onClick}
     >
       {title}
     </button>

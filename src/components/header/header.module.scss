@@ -1,6 +1,6 @@
-@import "/styles/mixins/colors.scss";
-@import "/styles/mixins/padding.scss";
-@import "/styles/mixins/responsive.scss";
+@import "/src/styles/mixins/colors.scss";
+@import "/src/styles/mixins/padding.scss";
+@import "/src/styles/mixins/responsive.scss";
 
 .container {
   @include Padding; //Mixin

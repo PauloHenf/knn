@@ -1,6 +1,6 @@
-@import "/styles/mixins/padding.scss";
-@import "/styles/mixins/responsive.scss";
-@import "/styles/mixins/fonts.scss";
+@import "/src/styles/mixins/padding.scss";
+@import "/src/styles/mixins/responsive.scss";
+@import "/src/styles/mixins/fonts.scss";
 
 .container {
   @include Padding;
