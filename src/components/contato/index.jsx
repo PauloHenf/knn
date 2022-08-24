@@ -7,9 +7,9 @@ import Styles from "./contato.module.scss";
 import Button from "../button/index";
 import Input from "../input";
 import Select from "../select";
-import { Loading } from "../Loading/index";
-import { SuccessModal } from "../SuccessModal";
-import { FailModal } from "../FailModal/index";
+import { Loading } from "../loading/index";
+import { SuccessModal } from "../successModal";
+import { FailModal } from "../failModal/index";
 
 const Contato = () => {
   const [isloading, setLoading] = useState(false);
