@@ -4,12 +4,9 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import axios from 'axios';
 import TableHead from '@mui/material/TableHead';
-
-import api from '../api/get-all-messages';
 
 export default function Messages() {
   const [page, setPage] = React.useState(0);
