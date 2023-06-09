@@ -1,26 +1,19 @@
-import { SMTPClient } from "emailjs";
+import { PrismaClient } from '@prisma/client';
 
 export default async function handler(req, res) {
-  const { messageBody } = req.body;
+  const prisma = new PrismaClient();
 
-  const client = new SMTPClient({
-    user: process.env.EMAIL,
-    password: process.env.PASSWORD,
-    host: "smtp.gmail.com",
-    ssl: true,
+  const { name, phone, loveText, dest, language } = req.body;
+
+  await prisma.promotionData.create({
+    data: {
+      name,
+      phone,
+      loveText,
+      dest,
+      language,
+    },
   });
 
-  try {
-    const message = await client.sendAsync({
-      text: messageBody,
-      from: "acadamyfront595@gmail.com",
-      to: "acadamyfront595@gmail.com",
-      subject: "Lead - Landingpage",
-    });
-    console.log(message);
-  } catch (err) {
-    console.error(err);
-  }
-
-  res.status(200).json({ message: "Send Mail" });
+  res.status(201).json({ message: 'Send Message!!' });
 }

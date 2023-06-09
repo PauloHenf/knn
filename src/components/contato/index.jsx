@@ -1,15 +1,15 @@
-import { useState } from "react";
-import Link from "next/link";
-import axios from "axios";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import Styles from "./contato.module.scss";
-import Button from "../button/index";
-import Input from "../input";
-import Select from "../select";
-import { Loading } from "../loading/index";
-import { SuccessModal } from "../successModal";
-import { FailModal } from "../failModal/index";
+import { useState } from 'react';
+import Link from 'next/link';
+import axios from 'axios';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import Styles from './contato.module.scss';
+import Button from '../button/index';
+import Input from '../input';
+import Select from '../select';
+import { Loading } from '../loading/index';
+import { SuccessModal } from '../successModal';
+import { FailModal } from '../failModal/index';
 
 const Contato = () => {
   const [isloading, setLoading] = useState(false);
@@ -18,22 +18,20 @@ const Contato = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
-      email: "",
-      phone: "",
-      website: "",
-      midia: "",
+      name: '',
+      phone: '',
+      loveText: '',
+      dest: '',
+      language: '',
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Campo Obrigatório"),
-      email: Yup.string()
-        .email("E-mail inválido")
-        .required("Campo Obrigatório"),
+      name: Yup.string().required('Campo Obrigatório'),
       phone: Yup.string()
-        .matches("", "Digite um telefone válido")
-        .required("Campo Obrigatório"),
-      website: Yup.string().required("Campo Obrigatório"),
-      midia: Yup.string().required("Campo Obrigatório"),
+        .matches('', 'Digite um telefone válido')
+        .required('Campo Obrigatório'),
+      loveText: Yup.string().required('Campo Obrigatório'),
+      dest: Yup.string().required('Campo Obrigatório'),
+      language: Yup.string().required('Campo Obrigatório'),
     }),
     validateOnChange: false,
     validateOnBlur: false,
@@ -45,8 +43,12 @@ const Contato = () => {
   const handleSubmitForm = (values) => {
     setLoading(true);
     axios
-      .post("/api/sendEmail", {
-        messageBody: `Nome: ${values.name}, Email: ${values.email}, Telefone: ${values.phone}, Site: ${values.website}, Midia: ${values.midia}`,
+      .post('/api/sendEmail', {
+        name: values.name,
+        phone: values.phone,
+        loveText: values.loveText,
+        dest: values.dest,
+        language: values.language,
       })
       .then(() => {
         formik.resetForm();
@@ -71,15 +73,17 @@ const Contato = () => {
       {isloading && <Loading />}
       <div className={Styles.container} id="contato">
         <div className={Styles.texts}>
-          <span>ENTRE EM CONTATO</span>
-          <h1>Aumente seu resultado de vendas e performance</h1>
+          <span>PARTICIPE AGORA!!</span>
+          <h1>
+            Concorra à um jantar romântico para você e mais um(a) acompanhante!!
+          </h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna
+            Para participar basta preencher as informações ao lado e marcar dois
+            amigos na publicação do instagram da @knnsaobento.
           </p>
         </div>
         <div className={Styles.form}>
-          <h1>Fale com um especialista</h1>
+          <h1>Deixe sua Mensagem para o seu amor 💖</h1>
 
           <form id="formulario" onSubmit={formik.handleSubmit}>
             <Input
@@ -90,16 +94,6 @@ const Contato = () => {
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.name}
-              required
-            />
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="E-mail profissional"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              value={formik.values.email}
               required
             />
             <Input
@@ -114,25 +108,38 @@ const Contato = () => {
               required
             />
             <Input
-              id="website"
-              name="website"
+              id="loveText"
+              name="loveText"
               type="text"
-              placeholder="Site"
+              placeholder="Escreva aqui a mensagem que deseja enviar"
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
-              value={formik.values.website}
+              value={formik.values.loveText}
+              required
+            />
+            <Input
+              id="dest"
+              name="dest"
+              type="text"
+              placeholder="Insta/Whatsapp do Destinatário"
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              value={formik.values.dest}
               required
             />
             <Select
-              id="midia"
-              name="midia"
-              placeholder="Orçamento para mídia"
+              id="language"
+              name="language"
+              placeholder="Língua que deseja enviar a mensagem:"
               options={[
-                { label: "Instagram", value: "instagram" },
-                { label: "Facebook", value: "facebook" },
+                { label: 'Inglês', value: 'english' },
+                { label: 'Espanhol', value: 'spanish' },
+                { label: 'Francês', value: 'france' },
+                { label: 'Italiano', value: 'italy' },
+                { label: 'Alemão', value: 'germany' },
               ]}
               onChange={formik.handleChange}
-              value={formik.values.midia}
+              value={formik.values.language}
               required
             />
 
@@ -143,7 +150,11 @@ const Contato = () => {
           <p>
             Ao enviar esse formulário, você reconhece que leu e concorda com a
             nossa
-            <Link href="/">
+            <Link
+              href="https://www.knnidiomas.com.br/privacidade/ "
+              target="blank"
+              rel="noopener noreferrer"
+            >
               <span> Política de Privacidade.</span>
             </Link>
           </p>

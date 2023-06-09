@@ -1,5 +1,5 @@
-@import "/src/styles/mixins/colors.scss";
-@import "/src/styles/mixins/fonts.scss";
+@import '/src/styles/mixins/colors.scss';
+@import '/src/styles/mixins/fonts.scss';
 
 .button {
   @include SizeSmall;
@@ -9,13 +9,23 @@
   border: none;
 
   &.primary {
-    background-color: $green-color;
+    background-color: rgb(255, 16, 68);
     color: $white-color;
+  }
+  &:hover {
+    background-color: $purple-color;
+    color: $white-color;
+    cursor: pointer;
   }
 
   &.secundary {
     background-color: $white-color;
     color: $purple-color;
+  }
+  &.secundary:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
   }
 
   &.full {
