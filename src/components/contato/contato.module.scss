@@ -1,16 +1,17 @@
-@import "/src/styles/mixins/colors.scss";
-@import "/src/styles/mixins/padding.scss";
-@import "/src/styles/mixins/responsive.scss";
-@import "/src/styles/mixins/fonts.scss";
+@import '/src/styles/mixins/colors.scss';
+@import '/src/styles/mixins/padding.scss';
+@import '/src/styles/mixins/responsive.scss';
+@import '/src/styles/mixins/fonts.scss';
 
 .container {
   @include Padding;
+  margin-top: 10vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: flex-start;
   justify-content: space-between;
   gap: 15px 3rem;
-  background-image: url("/images/fundoWelcome.svg");
+  background-image: url('/images/fundoWelcome.svg');
   background-repeat: no-repeat;
   background-size: cover; //rever
   margin-bottom: 10rem;

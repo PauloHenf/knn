@@ -9,9 +9,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Header />
-      <Welcome />
-      <Features />
       <Contato />
+      <Features />
       <Footer />
     </div>
   );

@@ -11,6 +11,9 @@ import { Loading } from '../loading/index';
 import { SuccessModal } from '../successModal';
 import { FailModal } from '../failModal/index';
 
+import logoCasa from '../../../public/images/casa1.png';
+import Image from 'next/image';
+
 const Contato = () => {
   const [isloading, setLoading] = useState(false);
   const [successModal, setModalSuccess] = useState(false);
@@ -75,13 +78,17 @@ const Contato = () => {
         <div className={Styles.texts}>
           <span>PARTICIPE AGORA!!</span>
           <h1>
-            Concorra à um jantar romântico para você e mais um(a) acompanhante!!
+            Concorra à um jantar romântico para você e mais um(a)
+            acompanhante!!!
           </h1>
           <p>
-            Para participar basta preencher as informações ao lado e marcar dois
-            amigos na publicação do instagram da @knnsaobento.
+            Para participar basta preencher as informações ao lado e repostar a
+            publicação do instagram da @knnsaobento.
+            <span> Em parceria com: </span>
           </p>
+          <Image src={logoCasa} alt="Casa Restaurante e Café" />
         </div>
+
         <div className={Styles.form}>
           <h1>Deixe sua Mensagem para o seu amor 💖</h1>
 

@@ -12,17 +12,24 @@ const Footer = () => {
     <div className={Styles.container}>
       <div className={`${Styles.column} ${Styles.columnPrincipal}`}>
         <Image src={Logo} alt="Logo" />
-        <h1 className={Styles.title}>(11) 99004-1932</h1>
+        <h1 className={Styles.title}>(12) 97412-4983</h1>
         <p>acoesknnsbs@gmail.com</p>
       </div>
       <div className={Styles.column}>
         <h1>ENDEREÇO</h1>
         <p>Rua 7 de Setembro, Número 267</p>
         <p>São Bento do Sapucaí - SP</p>
+        <Link href="https://www.google.com/maps/place/KNN+Idiomas/@-22.6865391,-45.7378953,17z/data=!3m1!4b1!4m6!3m5!1s0x94cc7bfc225720e3:0x2f339db4a391b3c6!8m2!3d-22.6865392!4d-45.7330298!16s%2Fg%2F11tx66ccpy?entry=ttu">
+          <p>Obter Localização</p>
+        </Link>
       </div>
       <div className={`${Styles.column} ${Styles.columnCurse}`}>
         <h1>CONTEÚDO</h1>
-        <Link href="https://www.knnidiomas.com.br/#cursos">
+        <Link
+          href="https://www.knnidiomas.com.br/#cursos"
+          target="_blank"
+          rel="noreferrer"
+        >
           <p>Nossos Cursos</p>
         </Link>
       </div>
