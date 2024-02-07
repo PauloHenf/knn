@@ -23,18 +23,18 @@ const Contato = () => {
     initialValues: {
       name: '',
       phone: '',
-      loveText: '',
-      dest: '',
-      language: '',
+      email: '',
+      age: '',
+      // language: '',
     },
     validationSchema: Yup.object({
       name: Yup.string().required('Campo Obrigatório'),
       phone: Yup.string()
         .matches('', 'Digite um telefone válido')
         .required('Campo Obrigatório'),
-      loveText: Yup.string().required('Campo Obrigatório'),
-      dest: Yup.string().required('Campo Obrigatório'),
-      language: Yup.string().required('Campo Obrigatório'),
+      email: Yup.string().email('Email Inválido!').required('Required'),
+      age: Yup.string().min(1).max(2).required('Campo Obrigatório'),
+      // language: Yup.string().required('Campo Obrigatório'),
     }),
     validateOnChange: false,
     validateOnBlur: false,
@@ -49,9 +49,9 @@ const Contato = () => {
       .post('/api/sendEmail', {
         name: values.name,
         phone: values.phone,
-        loveText: values.loveText,
-        dest: values.dest,
-        language: values.language,
+        email: values.email,
+        age: values.age,
+        // language: values.language,
       })
       .then(() => {
         formik.resetForm();
@@ -76,21 +76,20 @@ const Contato = () => {
       {isloading && <Loading />}
       <div className={Styles.container} id="contato">
         <div className={Styles.texts}>
-          <span>PARTICIPE AGORA!!</span>
+          <span>CONCORRA E GANHE!!</span>
           <h1>
-            Concorra à um jantar romântico para você e mais um(a)
-            acompanhante!!!
+          PREENCHA O FORMULÁRIO AO LADO E CONCORRA a R$ 500,00 Reais.
           </h1>
           <p>
-            Para participar basta preencher as informações ao lado e repostar a
-            publicação do instagram da @knnsaobento.
-            <span> Em parceria com: </span>
+          E se matriculando até o final de fevereiro você também garante a participação em um sorteio de um incrível Tablet Samsumg Galaxay A7 Lite!
           </p>
-          <Image src={logoCasa} alt="Casa Restaurante e Café" />
+          {/* <Image src={logoCasa} alt="Casa Restaurante e Café" /> */}
         </div>
 
         <div className={Styles.form}>
-          <h1>Deixe sua Mensagem para o seu amor 💖</h1>
+          <h1>Preencha o formulário abaixo e
+garanta já a sua participação neste
+sorteio incrível.</h1>
 
           <form id="formulario" onSubmit={formik.handleSubmit}>
             <Input
@@ -106,7 +105,7 @@ const Contato = () => {
             <Input
               id="phone"
               name="phone"
-              type="text"
+              type="number"
               placeholder="Celular/Whatsapp"
               pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
               onBlur={formik.handleBlur}
@@ -115,26 +114,26 @@ const Contato = () => {
               required
             />
             <Input
-              id="loveText"
-              name="loveText"
-              type="text"
-              placeholder="Escreva aqui a mensagem que deseja enviar"
+              id="email"
+              name="email"
+              type="email"
+              placeholder="E-mail"
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
-              value={formik.values.loveText}
+              value={formik.values.email}
               required
             />
             <Input
-              id="dest"
-              name="dest"
-              type="text"
-              placeholder="Insta/Whatsapp do Destinatário"
+              id="age"
+              name="age"
+              type="number"
+              placeholder="Idade"
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
-              value={formik.values.dest}
+              value={formik.values.age}
               required
             />
-            <Select
+            {/* <Select
               id="language"
               name="language"
               placeholder="Língua que deseja enviar a mensagem:"
@@ -148,7 +147,7 @@ const Contato = () => {
               onChange={formik.handleChange}
               value={formik.values.language}
               required
-            />
+            /> */}
 
             <Button type="submit" title="Enviar" kind="full" />
           </form>

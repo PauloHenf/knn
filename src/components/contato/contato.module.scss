@@ -41,7 +41,15 @@
   p {
     @include SizeNormal;
     font-weight: 300;
-    opacity: 0.7;
+    opacity: 0.9;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    word-spacing: 5px;
+    text-align: center;
+    padding: 20px;
   }
 }
 

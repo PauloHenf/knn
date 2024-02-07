@@ -39,9 +39,8 @@ export default function Messages() {
             <TableRow>
               <TableCell>Nome</TableCell>
               <TableCell>Telefone</TableCell>
-              <TableCell>Mensagem</TableCell>
-              <TableCell>Destinatário</TableCell>
-              <TableCell>Idioma</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Idade</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -50,9 +49,8 @@ export default function Messages() {
                 <TableRow key={message.id}>
                   <TableCell>{message.name}</TableCell>
                   <TableCell>{message.phone}</TableCell>
-                  <TableCell>{message.loveText}</TableCell>
-                  <TableCell>{message.dest}</TableCell>
-                  <TableCell>{message.language}</TableCell>
+                  <TableCell>{message.email}</TableCell>
+                  <TableCell>{message.age}</TableCell>
                 </TableRow>
               );
             })}

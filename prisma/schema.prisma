@@ -6,18 +6,13 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "cockroachdb"
+  url      = "postgresql://harry:7Eg-GFxhhNlFofKMcALhvA@server-build-1832.g8x.gcp-southamerica-east1.cockroachlabs.cloud:26257/januaryDb?sslmode=allow"
 }
-
-model PromotionData {
-  id       String @id @default(uuid())
-  name     String
-  phone    String
-  loveText String
-  dest     String
-  language String
-
-  @@map("promotion_data")
+model FiveHundred {
+  id Int @id @default(sequence())
+  name String
+  phone String
+  email String @unique
+  age Int
 }

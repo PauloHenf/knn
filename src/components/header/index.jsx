@@ -4,6 +4,7 @@ import Styles from './header.module.scss';
 import Button from '../button';
 import { ScrollTo } from '../../utils/scrollTo';
 import KnnLogo from '/public/images/knn-logo.png';
+import WhatsappLogo from '/public/images/whatsapp-logo.png'
 
 const Header = () => {
   return (
@@ -18,11 +19,13 @@ const Header = () => {
         {/* <text>Promoção do Dia dos Namorados KNN Idiomas ❤</text> */}
       </div>
       <div className={Styles.action}>
+
         <Button
+        // src={<Image src={WhatsappLogo} alt='whatsappLogo' width={45} height={40} />}
           kind="primary"
-          title="Participe Já"
-          onClick={() => ScrollTo('contato')}
-        />
+          title= "Entre em contato" 
+          onClick={() => window.location = "https://w.app/KnnIdiomas"}
+        /> 
       </div>
     </div>
   );
