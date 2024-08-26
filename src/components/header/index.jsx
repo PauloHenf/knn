@@ -20,12 +20,12 @@ const Header = () => {
       </div>
       <div className={Styles.action}>
 
-        <Button
+         {/* <Button
         // src={<Image src={WhatsappLogo} alt='whatsappLogo' width={45} height={40} />}
           kind="primary"
           title= "Entre em contato" 
           onClick={() => window.location = "https://w.app/KnnIdiomas"}
-        /> 
+        />  */}
       </div>
     </div>
   );
