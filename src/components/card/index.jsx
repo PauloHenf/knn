@@ -11,11 +11,11 @@ export default function ActionAreaCard() {
   return (
     <div>
         {/* <img src="https://news.cgtn.com/news/3d3d414d3251444f78457a6333566d54/img/50477e823a5d4e968486ae7347d78044/50477e823a5d4e968486ae7347d78044.jpg" alt="" /> */}
-      <Card sx={{ maxWidth: 1000 }} className={Styles.container}>
+      <Card sx={{maxWidth: 750}}  className={Styles.container}>
         <CardActionArea className={Styles.card}>
           <CardMedia
             component="img"
-            height="220"
+            height="200"
             image="https://acisb.com.br/wp-content/uploads/2023/12/capa-bento-cafe.webp"
             alt="O Bento Café"
           />
@@ -33,7 +33,7 @@ export default function ActionAreaCard() {
         <CardActionArea className={Styles.card}>
           <CardMedia
             component="img"
-            height="250"
+            height="200"
             image="https://images.partners.gympass.com/image/filename/4457890/Ot_isg948P1RQZAzqxrEF6RkZplkEicF.png"
             alt="Imperium Alpha"
           />
@@ -51,7 +51,7 @@ export default function ActionAreaCard() {
         <CardActionArea className={Styles.card}>
           <CardMedia
             component="img"
-            height="230"
+            height="200"
             image="https://isinaliza.vtexassets.com/arquivos/ids/186170-1200-auto?v=636983687515900000&width=1200&height=auto&aspect=true"
             alt="Em breve novos parceiros"
           />
